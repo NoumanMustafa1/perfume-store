@@ -10,9 +10,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Disable Turbopack for production build
-  turbopack: {
-    build: false,
+  // Use webpack for builds instead of Turbopack
+  webpack: (config) => {
+    return config;
   },
 };
 
