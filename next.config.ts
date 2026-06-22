@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Disable Turbopack for production build
+  turbopack: {
+    build: false,
+  },
 };
 
 export default nextConfig;
