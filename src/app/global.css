@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  --noire-black:#0b0908;
+  --noire-dark:#11100e;
+  --noire-gold:#c9a96e;
+  --noire-cream:#f7f2e8;
+}
+
+
+
+* {
+  box-sizing:border-box;
+}
+
+
+
+html {
+  scroll-behavior:smooth;
+}
+
+
+
+body {
+
+  margin:0;
+
+  background:var(--noire-black);
+
+  color:white;
+
+  font-family:"Jost", sans-serif;
+
+}
+
+
+
+
+/* Luxury Headings */
+
+h1,
+h2,
+h3 {
+
+  font-family:"Playfair Display", serif;
+
+  font-weight:400;
+
+}
+
+
+
+.font-serif {
+
+  font-family:"Playfair Display", serif;
+
+}
+
+
+
+
+
+/* Gold Text */
+
+.gold {
+
+  color:var(--noire-gold);
+
+}
+
+
+
+
+
+/* Luxury Buttons */
+
+
+.noire-button {
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:16px 40px;
+
+  background:var(--noire-gold);
+
+  color:#111;
+
+  letter-spacing:.25em;
+
+  font-size:.75rem;
+
+  text-transform:uppercase;
+
+  transition:.4s ease;
+
+}
+
+
+
+.noire-button:hover {
+
+  background:#e2c28b;
+
+  transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+/* Outline Button */
+
+
+.noire-outline {
+
+  display:inline-flex;
+
+  padding:16px 40px;
+
+  border:1px solid rgba(255,255,255,.4);
+
+  color:white;
+
+  letter-spacing:.25em;
+
+  font-size:.75rem;
+
+  text-transform:uppercase;
+
+  transition:.4s ease;
+
+}
+
+
+
+.noire-outline:hover {
+
+  border-color:#c9a96e;
+
+  color:#c9a96e;
+
+}
+
+
+
+
+
+/* Hero Image Animation */
+
+
+.hero-image {
+
+ animation:zoom 20s infinite alternate;
+
+}
+
+
+
+@keyframes zoom {
+
+
+from {
+
+transform:scale(1);
+
+}
+
+
+to {
+
+transform:scale(1.08);
+
+}
+
+
+}
+
+
+
+
+
+/* Product Cards */
+
+
+.group {
+
+cursor:pointer;
+
+}
+
+
+
+.group img {
+
+transition:transform .8s ease;
+
+}
+
+
+
+.group:hover img {
+
+transform:scale(1.08);
+
+}
+
+
+
+
+
+/* Section Spacing */
+
+
+section {
+
+position:relative;
+
+}
+
+
+
+
+
+/* Gold Divider */
+
+
+.gold-line {
+
+width:50px;
+
+height:1px;
+
+background:#c9a96e;
+
+margin:25px auto;
+
+}
+
+
+
+
+
+/* Custom Selection */
+
+
+select {
+
+appearance:none;
+
+}
+
+
+
+select option {
+
+background:#11100e;
+
+color:white;
+
+}
+
+
+
+
+
+/* Scrollbar */
+
+
+::-webkit-scrollbar {
+
+width:8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+background:#0b0908;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+background:#c9a96e;
+
+}
+
+
+
+
+
+
+/* Luxury Fade Animation */
+
+
+.fade-up {
+
+animation:fadeUp .9s ease forwards;
+
+}
+
+
+
+@keyframes fadeUp {
+
+
+from {
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+
+h1 {
+
+font-size:3rem;
+
+}
+
+
+h2 {
+
+font-size:2.3rem;
+
+}
+
+
+}

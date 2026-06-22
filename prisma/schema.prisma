@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  slug        String   @unique
+  description String
+  price       Float
+  image       String
+  category    String
+  stock       Int
+  createdAt   DateTime @default(now())
+
+  orderItems  OrderItem[]
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  total     Float
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id        Int @id @default(autoincrement())
+  quantity  Int
+  price     Float
+
+  orderId   Int
+  order     Order @relation(fields: [orderId], references: [id])
+
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model CustomPerfume {
+  id         Int      @id @default(autoincrement())
+  topNote    String
+  middleNote String
+  baseNote   String
+  bottle     String
+  price      Float
+  createdAt  DateTime @default(now())
+}
