@@ -2,7 +2,7 @@
 
 
 import {createProduct}
-from "@/actions/product";
+from "../../actions/product";
 
 import {useState} from "react";
 
