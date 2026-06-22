@@ -1,0 +1,722 @@
+/* ============ FONTS ============ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+/* ============ ROOT ============ */
+.collections-root {
+  background: #FAF8F4;
+  min-height: 100vh;
+  font-family: 'Jost', sans-serif;
+  color: #1C1A17;
+}
+
+/* ============ HERO ============ */
+.collections-hero {
+  height: 75vh;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.collections-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collections-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.3) 0%, rgba(250,248,244,.95) 100%);
+}
+
+.collections-hero-content {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.collections-scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.collections-scroll-line {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(to bottom, #C9A96E, transparent);
+}
+
+.collections-scroll-text {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #9C8B6E;
+}
+
+.collections-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #C9A96E;
+}
+
+.collections-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  font-weight: 400;
+  margin: 15px 0;
+  color: #1C1A17;
+}
+
+.collections-hero-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #4A4540;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ============ FEATURES BAR ============ */
+.collections-features-bar {
+  padding: 3rem 2.5rem;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.collections-features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.collections-feature-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.collections-feature-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0 0 0.3rem;
+}
+
+.collections-feature-desc {
+  font-size: 0.78rem;
+  color: #6B6660;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============ COLLECTIONS SECTION ============ */
+.collections-section {
+  padding: 5rem 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.collections-heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.collections-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #9C8B6E;
+}
+
+.collections-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+.collections-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #4A4540;
+  max-width: 500px;
+  margin: 1rem auto 0;
+}
+
+.collections-line {
+  width: 50px;
+  height: 1px;
+  background: #C9A96E;
+  margin: 1.5rem auto;
+}
+
+.collections-filter-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.collections-filter-tab {
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,.1);
+  color: #4A4540;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.collections-filter-tab:hover {
+  border-color: #1C1A17;
+}
+
+.collections-filter-tab-active {
+  background: #1C1A17;
+  color: #FAF8F4;
+  border-color: #1C1A17;
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.collections-card {
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.collections-card:hover .collections-card-image {
+  transform: scale(1.05);
+}
+
+.collections-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.collections-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.8) 0%, rgba(0,0,0,.2) 40%, transparent 100%);
+}
+
+.collections-card-content {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  color: #FAF8F4;
+  text-align: center;
+}
+
+.collections-card-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: rgba(201,169,110,.2);
+  border: 1px solid rgba(201,169,110,.3);
+  color: #C9A96E;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.collections-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0 0 0.5rem;
+}
+
+.collections-card-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+}
+
+.collections-card-featured {
+  font-size: 0.7rem;
+  color: #C9A96E;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.collections-featured-label {
+  color: #B0ABA4;
+}
+
+.collections-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 25px;
+  background: transparent;
+  border: 1px solid #C9A96E;
+  color: #FAF8F4;
+  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.collections-button:hover {
+  background: #C9A96E;
+  color: #1C1A17;
+}
+
+/* ============ BEST SELLERS ============ */
+.collections-bestseller-section {
+  background: #1C1A17;
+  padding: 5rem 2.5rem;
+}
+
+.collections-bestseller-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.collections-bestseller-card {
+  text-decoration: none;
+  color: #FAF8F4;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.collections-bestseller-card:hover {
+  transform: translateY(-5px);
+}
+
+.collections-bestseller-image-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.collections-bestseller-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.collections-bestseller-card:hover .collections-bestseller-image {
+  transform: scale(1.05);
+}
+
+.collections-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: #C9A96E;
+  color: #1C1A17;
+  padding: 0.2rem 0.6rem;
+  font-weight: 500;
+}
+
+.collections-bestseller-info {
+  text-align: center;
+}
+
+.collections-bestseller-category {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6B6660;
+  margin: 0 0 0.3rem;
+}
+
+.collections-bestseller-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.collections-rating-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.collections-bestseller-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #C9A96E;
+  margin: 0;
+}
+
+.collections-center-btn {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.collections-btn-gold {
+  display: inline-block;
+  background: #C9A96E;
+  color: #1C1A17;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Jost', sans-serif;
+  transition: background 0.3s ease;
+}
+
+.collections-btn-gold:hover {
+  background: #b89655;
+}
+
+/* ============ CRAFT ============ */
+.collections-craft-section {
+  padding: 5rem 2.5rem;
+  background: #FAF8F4;
+}
+
+.collections-craft-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.collections-craft-content {
+  max-width: 480px;
+}
+
+.collections-craft-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.collections-craft-title-italic {
+  font-style: italic;
+  color: #C9A96E;
+}
+
+.collections-craft-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #4A4540;
+  margin-bottom: 1.5rem;
+}
+
+.collections-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1C1A17;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1C1A17;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.collections-text-link:hover {
+  color: #C9A96E;
+  border-bottom-color: #C9A96E;
+}
+
+.collections-craft-image {
+  height: 450px;
+  overflow: hidden;
+}
+
+.collections-craft-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.collections-craft-image:hover img {
+  transform: scale(1.03);
+}
+
+/* ============ TESTIMONIALS ============ */
+.collections-testimonial-section {
+  background: #11100E;
+  padding: 5rem 2.5rem;
+}
+
+.collections-testimonial-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.collections-testimonial-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collections-testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
+
+.collections-quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: #C9A96E;
+  line-height: 1;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.collections-testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #D8D2C8;
+  margin: 0 0 1.5rem;
+}
+
+.collections-testimonial-divider {
+  width: 30px;
+  height: 1px;
+  background: #C9A96E;
+  margin: 0 auto 1rem;
+}
+
+.collections-testimonial-name {
+  font-size: 0.85rem;
+  color: #FAF8F4;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.collections-testimonial-role {
+  font-size: 0.7rem;
+  color: #6B6660;
+  margin: 0.3rem 0 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============ CTA ============ */
+.collections-cta-section {
+  padding: 6rem 2.5rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #FAF8F4, rgba(201,169,110,.05));
+}
+
+.collections-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.collections-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+}
+
+.collections-cta-title-italic {
+  font-style: italic;
+  color: #C9A96E;
+}
+
+.collections-cta-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: #4A4540;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* ============ FOOTER ============ */
+.collections-footer {
+  background: #1C1A17;
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FAF8F4;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.collections-footer-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.collections-footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  font-size: 1.1rem;
+}
+
+.collections-footer-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6B6660;
+}
+
+.collections-footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.collections-footer-link {
+  color: #6B6660;
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.collections-footer-link:hover {
+  color: #C9A96E;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .collections-bestseller-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .collections-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .collections-hero {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  .collections-hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .collections-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .collections-bestseller-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .collections-features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .collections-craft-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .collections-craft-image {
+    height: 300px;
+  }
+  
+  .collections-testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .collections-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .collections-footer-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .collections-section {
+    padding: 3rem 1rem;
+  }
+  
+  .collections-bestseller-section {
+    padding: 3rem 1rem;
+  }
+  
+  .collections-craft-section {
+    padding: 3rem 1rem;
+  }
+  
+  .collections-testimonial-section {
+    padding: 3rem 1rem;
+  }
+  
+  .collections-cta-section {
+    padding: 4rem 1rem;
+  }
+  
+  .collections-cta-title {
+    font-size: 2rem;
+  }
+  
+  .collections-card {
+    height: 350px;
+  }
+}
