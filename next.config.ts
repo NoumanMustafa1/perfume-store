@@ -10,10 +10,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Use webpack for builds instead of Turbopack
-  webpack: (config) => {
-    return config;
-  },
 };
 
 export default nextConfig;
