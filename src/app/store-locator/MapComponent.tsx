@@ -7,7 +7,7 @@ import { Store } from "../data/stores";
 // Import leaflet types only
 import type { DivIcon } from "leaflet";
 
-// Dynamically import the actual map component with NO SSR
+// Dynamically import components with NO SSR
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
   { ssr: false }
@@ -28,16 +28,18 @@ const Popup = dynamic(
   { ssr: false }
 );
 
-const useMap = dynamic(
-  () => import("react-leaflet").then((mod) => mod.useMap),
-  { ssr: false }
-);
+// useMap is a hook - import it directly since it won't be used until client-side
+let useMapHook: any = null;
+if (typeof window !== "undefined") {
+  import("react-leaflet").then((mod) => {
+    useMapHook = mod.useMap;
+  });
+}
 
 // Lazy load leaflet and create gold icon
 async function getGoldIcon(): Promise<DivIcon> {
   const L = await import("leaflet");
   
-  // Fix default marker icons
   delete (L.Icon.Default.prototype as any)._getIconUrl;
   L.Icon.Default.mergeOptions({
     iconRetinaUrl:
@@ -65,7 +67,7 @@ async function getGoldIcon(): Promise<DivIcon> {
 
 // Component to handle flying to selected store
 function FlyToStore({ store }: { store: Store | null }) {
-  const map = useMap();
+  const map = useMapHook?.();
   const prevStoreId = useRef<string | null>(null);
 
   useEffect(() => {
@@ -82,7 +84,7 @@ function FlyToStore({ store }: { store: Store | null }) {
 
 // Component to handle map resize
 function MapController() {
-  const map = useMap();
+  const map = useMapHook?.();
 
   useEffect(() => {
     if (map) {
@@ -112,6 +114,15 @@ export default function MapComponent({
   const hasStores = stores.length > 0;
   const [goldIcon, setGoldIcon] = useState<DivIcon | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [mapComponentsReady, setMapComponentsReady] = useState(false);
+
+  // Load map hook
+  useEffect(() => {
+    import("react-leaflet").then((mod) => {
+      useMapHook = mod.useMap;
+      setMapComponentsReady(true);
+    });
+  }, []);
 
   // Initialize icon only on client side
   useEffect(() => {
@@ -129,7 +140,7 @@ export default function MapComponent({
 
   const mapZoom = hasStores ? (stores.length === 1 ? 14 : 3) : 13;
 
-  if (!mapReady || !goldIcon) {
+  if (!mapReady || !goldIcon || !mapComponentsReady) {
     return (
       <div style={{
         width: "100%",
