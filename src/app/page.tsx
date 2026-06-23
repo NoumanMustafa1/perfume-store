@@ -842,7 +842,6 @@ const s: Record<string, CSSProperties> = {
     color: "#4A4540",
     margin: 0,
   },
-
   /* ---------- EDITORIAL ---------- */
 
   editorial: {
