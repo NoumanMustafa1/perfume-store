@@ -1,0 +1,202 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Quote } from "lucide-react";
+import "./home.css";
+
+
+const NOTES = [
+  "BERGAMOT", "OUD", "ROSE DE MAI", "AMBERGRIS", "SAFFRON",
+  "VETIVER", "TONKA BEAN", "JASMINE", "SANDALWOOD", "BLACK PEPPER",
+];
+
+const FEATURED = [
+  { name: "Oud Imperial", note: "Woody · Intense", price: "$285", image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=900&q=80&auto=format&fit=crop" },
+  { name: "Rose Noir", note: "Floral · Velvet", price: "$245", image: "https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=900&q=80&auto=format&fit=crop" },
+  { name: "Midnight Amber", note: "Oriental · Warm", price: "$260", image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=900&q=80&auto=format&fit=crop" },
+  { name: "Santal Mystique", note: "Woody · Creamy", price: "$270", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=900&q=80&auto=format&fit=crop" },
+];
+
+const CRAFT_STEPS = [
+  { n: "01", title: "Sourced", text: "Rare oud, ambergris, and botanical absolutes gathered from growers across Grasse, Mysore, and the Hadhramaut valley.", image: "https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=900&q=80&auto=format&fit=crop" },
+  { n: "02", title: "Composed", text: "Master perfumers layer top, heart, and base notes over months, balancing each accord by hand and by memory.", image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=900&q=80&auto=format&fit=crop" },
+  { n: "03", title: "Aged & Bottled", text: "Every batch rests in dark glass for a minimum of six weeks before it is hand-poured into its final vessel.", image: "https://images.unsplash.com/photo-1557170334-a9632e77c6e4?w=900&q=80&auto=format&fit=crop" },
+];
+
+const TESTIMONIALS = [
+  { quote: "It doesn't smell like a perfume. It smells like a memory I haven't had yet.", name: "Élodie M.", role: "Paris, France" },
+  { quote: "Oud Imperial lasted through a sixteen hour flight and still turned heads at arrival.", name: "James R.", role: "Dubai, UAE" },
+  { quote: "I had a scent composed for my wedding. Five years later, it still undoes me.", name: "Hana K.", role: "Lahore, Pakistan" },
+];
+
+const PRESS = ["Vogue", "Monocle", "Wallpaper*", "Harper's Bazaar", "GQ"];
+
+export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 860);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  return (
+    <main className="home-root">
+      {/* Hero */}
+      <section className="home-hero">
+        <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=1800&q=80&auto=format&fit=crop" alt="Maison Noiré fragrance" className="home-hero-img" />
+        <div className="home-hero-overlay" />
+        <div className="home-hero-content">
+          <p className="home-eyebrow-light">Maison Noiré · Paris</p>
+          <h1 className="home-hero-title" style={{ fontSize: isMobile ? "2.8rem" : "5rem" }}>
+            The Art Of<br /><span className="home-hero-title-italic">Fragrance</span>
+          </h1>
+          <p className="home-hero-sub">Handcrafted perfumes composed from rare ingredients, timeless memory, and emotion.</p>
+          <div className="home-hero-actions">
+            <Link href="/shop" className="home-btn-gold">Explore Collection</Link>
+            <Link href="/custom-perfume" className="home-btn-ghost">Create Your Scent</Link>
+          </div>
+        </div>
+        <div className="home-hero-scroll-hint">
+          <span className="home-hero-scroll-line" />
+          <span className="home-hero-scroll-text">Scroll</span>
+        </div>
+      </section>
+
+      {/* Marquee */}
+      <section className="home-marquee-section" aria-label="Olfactory notes">
+        <div className="home-marquee-track">
+          {[...NOTES, ...NOTES].map((note, i) => (
+            <span key={i} className="home-marquee-item">
+              {note}<span className="home-marquee-dot">·</span>
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Introduction */}
+      <section className="home-intro" style={{ padding: isMobile ? "4rem 1.5rem" : "6.5rem 2.5rem" }}>
+        <div className="home-intro-grid" style={{ gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
+          <div className="home-intro-text">
+            <p className="home-eyebrow-dark">The Noiré Experience</p>
+            <h2 className="home-intro-title">A Fragrance<br />Beyond Ordinary</h2>
+            <p className="home-intro-body">Every Noiré perfume is composed like a piece of art — rare botanicals, master craftsmanship, and modern elegance combined to create a signature that is unmistakably yours.</p>
+            <Link href="/about" className="home-text-link">Our Story <ArrowUpRight size={14} /></Link>
+          </div>
+          <div className="home-intro-images" style={{ height: isMobile ? 340 : 480, marginTop: isMobile ? "1rem" : 0 }}>
+            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700&q=80&auto=format&fit=crop" alt="Perfume composition" className="home-intro-img-main" />
+            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500&q=80&auto=format&fit=crop" alt="Fragrance ingredients" className="home-intro-img-small" />
+          </div>
+        </div>
+      </section>
+
+      {/* Featured */}
+      <section className="home-featured" style={{ padding: isMobile ? "4rem 0" : "6.5rem 0" }}>
+        <div className="home-featured-inner" style={{ padding: isMobile ? "0 1.5rem" : "0 2.5rem" }}>
+          <div className="home-featured-head">
+            <div>
+              <p className="home-eyebrow-light">Signature Pieces</p>
+              <h2 className="home-featured-title">Featured Fragrances</h2>
+            </div>
+            <Link href="/shop" className="home-view-all-link">View All <ArrowUpRight size={14} /></Link>
+          </div>
+          <div className="home-featured-grid" style={{ gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)" }}>
+            {FEATURED.map((item) => (
+              <Link key={item.name} href="/shop" className="home-featured-card">
+                <div className="home-featured-img-wrap" style={{ height: isMobile ? 220 : 380 }}>
+                  <img src={item.image} alt={item.name} className="home-featured-img" />
+                </div>
+                <div className="home-featured-info">
+                  <h3 className="home-featured-name">{item.name}</h3>
+                  <p className="home-featured-note">{item.note}</p>
+                  <p className="home-featured-price">{item.price}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bespoke */}
+      <section className="home-bespoke">
+        <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6a?w=1600&q=80&auto=format&fit=crop" alt="Custom perfume creation" className="home-bespoke-img" />
+        <div className="home-bespoke-overlay" />
+        <div className="home-bespoke-content">
+          <p className="home-eyebrow-light">Bespoke Perfume</p>
+          <h2 className="home-bespoke-title" style={{ fontSize: isMobile ? "2.1rem" : "2.9rem" }}>Create A Scent<br />That Is Only Yours</h2>
+          <p className="home-bespoke-text">Choose your notes, define your character, and create a fragrance crafted entirely around your identity.</p>
+          <Link href="/custom-perfume" className="home-btn-gold">Start Creation</Link>
+        </div>
+      </section>
+
+      {/* Craft */}
+      <section className="home-craft" style={{ padding: isMobile ? "4rem 1.5rem" : "6.5rem 2.5rem" }}>
+        <div className="home-craft-head">
+          <p className="home-eyebrow-dark">From Field To Flacon</p>
+          <h2 className="home-craft-title">The Making Of A Noiré</h2>
+        </div>
+        <div className="home-craft-grid" style={{ gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)" }}>
+          {CRAFT_STEPS.map((step) => (
+            <div key={step.n} className="home-craft-card">
+              <div className="home-craft-img-wrap">
+                <img src={step.image} alt={step.title} className="home-craft-img" />
+                <span className="home-craft-number">{step.n}</span>
+              </div>
+              <h3 className="home-craft-card-title">{step.title}</h3>
+              <p className="home-craft-card-text">{step.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Editorial */}
+      <section className="home-editorial" style={{ gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr" }}>
+        <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=700&q=80&auto=format&fit=crop" alt="Editorial" className="home-editorial-img-tall" style={{ height: isMobile ? 320 : 460 }} />
+        <img src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?w=700&q=80&auto=format&fit=crop" alt="Fragrance detail" className="home-editorial-img-short" style={{ height: isMobile ? 320 : 460 }} />
+        <img src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=700&q=80&auto=format&fit=crop" alt="Ingredients" className="home-editorial-img-tall" style={{ height: isMobile ? 320 : 460 }} />
+      </section>
+
+      {/* Testimonials */}
+      <section className="home-testimonials" style={{ padding: isMobile ? "4rem 1.5rem" : "6.5rem 2.5rem" }}>
+        <p className="home-eyebrow-light">In Their Words</p>
+        <h2 className="home-testimonials-title">Worn, Remembered, Loved</h2>
+        <div className="home-testimonials-grid" style={{ gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)" }}>
+          {TESTIMONIALS.map((t) => (
+            <div key={t.name} className="home-testimonial-card">
+              <Quote size={20} color="#C9A96E" />
+              <p className="home-testimonial-quote">{t.quote}</p>
+              <div className="home-testimonial-divider" />
+              <p className="home-testimonial-name">{t.name}</p>
+              <p className="home-testimonial-role">{t.role}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="home-newsletter" style={{ padding: isMobile ? "4rem 1.5rem" : "6.5rem 2.5rem" }}>
+        <div className="home-newsletter-inner">
+          <p className="home-eyebrow-dark">Private Collection</p>
+          <h2 className="home-newsletter-title">Be First To Discover<br />New Compositions</h2>
+          <p className="home-newsletter-text">Join our private list for early access to limited releases, member-only pricing, and invitations to Maison Noiré events.</p>
+          <form className="home-newsletter-form" style={{ flexDirection: isMobile ? "column" : "row" }}>
+            <input type="email" placeholder="your@email.com" className="home-newsletter-input" />
+            <button type="submit" className="home-newsletter-btn">Subscribe</button>
+          </form>
+        </div>
+      </section>
+
+      {/* Press */}
+      <section className="home-press">
+        <p className="home-press-label">As Featured In</p>
+        <div className="home-press-row">
+          {PRESS.map((name) => (
+            <span key={name} className="home-press-name">{name}</span>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
