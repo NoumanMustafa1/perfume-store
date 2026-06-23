@@ -1,0 +1,426 @@
+/* ============ ROOT ============ */
+.store-locator-root {
+  background: #0A0A09;
+  color: #FAF8F4;
+  font-family: 'Jost', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ============ HEADER ============ */
+.store-locator-header {
+  padding: 1.5rem 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  flex-shrink: 0;
+}
+
+.store-locator-header-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.store-locator-back-btn {
+  background: none;
+  border: none;
+  color: #6B6660;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.store-locator-back-btn:hover {
+  color: #C9A96E;
+}
+
+.store-locator-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #C9A96E;
+  margin-bottom: 0.5rem;
+}
+
+.store-locator-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+  color: #FAF8F4;
+}
+
+.store-locator-title-italic {
+  font-style: italic;
+  color: #C9A96E;
+}
+
+/* ============ SEARCH SECTION ============ */
+.store-locator-search-section {
+  padding: 1.2rem 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  flex-shrink: 0;
+}
+
+.store-locator-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0.7rem 1.2rem;
+  max-width: 450px;
+  transition: border-color 0.3s ease;
+}
+
+.store-locator-search-wrap:focus-within {
+  border-color: #C9A96E;
+}
+
+.store-locator-search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #FAF8F4;
+  width: 100%;
+  font-size: 0.85rem;
+  font-family: 'Jost', sans-serif;
+}
+
+.store-locator-search-input::placeholder {
+  color: #6B6660;
+}
+
+.store-locator-clear-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.store-locator-clear-btn:hover {
+  opacity: 1;
+}
+
+.store-locator-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.8rem;
+}
+
+.store-locator-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1px solid rgba(255,255,255,.15);
+  color: #B0ABA4;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.store-locator-filter-btn:hover {
+  border-color: #C9A96E;
+  color: #C9A96E;
+}
+
+.store-locator-result-count {
+  font-size: 0.72rem;
+  color: #6B6660;
+  letter-spacing: 0.1em;
+}
+
+.store-locator-filter-options {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.store-locator-filter-option {
+  background: none;
+  border: 1px solid rgba(255,255,255,.1);
+  color: #6B6660;
+  padding: 0.4rem 1rem;
+  font-size: 0.72rem;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+
+.store-locator-filter-option:hover {
+  border-color: #C9A96E;
+  color: #B0ABA4;
+}
+
+.store-locator-filter-option-active {
+  background: rgba(201, 169, 110, 0.1);
+  color: #C9A96E;
+  border: 1px solid #C9A96E;
+}
+
+/* ============ MAIN CONTENT ============ */
+.store-locator-main-content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ============ STORE LIST ============ */
+.store-locator-store-list {
+  width: 420px;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,.06);
+  background: #0A0A09;
+  flex-shrink: 0;
+}
+
+.store-locator-store-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.store-locator-store-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.store-locator-store-list::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.1);
+  border-radius: 2px;
+}
+
+.store-locator-store-card {
+  width: 100%;
+  display: flex;
+  padding: 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  border-left: 2px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  color: #FAF8F4;
+  font-family: 'Jost', sans-serif;
+  transition: background 0.3s, border-left-color 0.3s;
+}
+
+.store-locator-store-card:hover {
+  background: rgba(255,255,255,.02);
+}
+
+.store-locator-store-card-active {
+  background: rgba(201, 169, 110, 0.05);
+  border-left: 2px solid #C9A96E;
+}
+
+.store-locator-store-card-content {
+  flex: 1;
+}
+
+.store-locator-store-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.store-locator-store-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  margin: 0;
+  color: #FAF8F4;
+}
+
+.store-locator-type-badge {
+  font-size: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.store-locator-store-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.store-locator-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: #B0ABA4;
+}
+
+.store-locator-services-row {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.store-locator-service-tag {
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  color: #6B6660;
+}
+
+.store-locator-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #C9A96E;
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.store-locator-directions-btn:hover {
+  border-bottom-color: #C9A96E;
+}
+
+.store-locator-store-image {
+  width: 80px;
+  height: 80px;
+  margin-left: 1rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.store-locator-store-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============ MAP CONTAINER ============ */
+.store-locator-map-container {
+  flex: 1;
+  background: #11100E;
+  position: relative;
+  height: 100%;
+}
+
+/* ============ NO RESULTS ============ */
+.store-locator-no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #6B6660;
+  gap: 0.8rem;
+}
+
+.store-locator-no-results-title {
+  font-size: 1rem;
+  color: #B0ABA4;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+.store-locator-no-results-sub {
+  font-size: 0.78rem;
+  color: #6B6660;
+  margin: 0;
+}
+
+.store-locator-reset-btn {
+  margin-top: 0.5rem;
+  background: none;
+  border: 1px solid #C9A96E;
+  color: #C9A96E;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.store-locator-reset-btn:hover {
+  background: #C9A96E;
+  color: #0A0A09;
+}
+
+/* ============ MOBILE TOGGLE ============ */
+.store-locator-mobile-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C9A96E;
+  color: #0A0A09;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  transition: background 0.3s ease;
+}
+
+.store-locator-mobile-toggle:hover {
+  background: #b89655;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 860px) {
+  .store-locator-store-list {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    max-height: 60vh;
+    border-right: none;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+}
+
+@media (max-width: 480px) {
+  .store-locator-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .store-locator-search-section {
+    padding: 1rem 1.5rem;
+  }
+
+  .store-locator-title {
+    font-size: 1.5rem;
+  }
+
+  .store-locator-store-card {
+    padding: 1rem;
+  }
+}
