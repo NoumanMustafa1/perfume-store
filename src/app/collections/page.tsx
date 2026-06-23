@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Star, Sparkles, Shield, Clock, Gem } from "lucide-react";
-import "./collection.css";
+import "./collection.css"; 
 
 const collections = [
   {
